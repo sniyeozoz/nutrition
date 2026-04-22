@@ -12,39 +12,34 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0f0f0f; --bg2:#1a1a1a; --bg3:#222;
-  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.15);
-  --text:#f0ede8; --text2:rgba(240,237,232,0.55); --text3:rgba(240,237,232,0.3);
-  --protein:#7eb8f7; --fat:#f78cb3; --carb:#6dd9ac; --danger:#f07070;
-  --mono:'DM Mono',monospace; --sans:'Noto Sans TC',sans-serif;
-  --st:env(safe-area-inset-top,0px); --sb:env(safe-area-inset-bottom,0px);
+  --bg:#0f0f0f; --bg2:#1a1a1a; --bg3:#222;
+  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.15);
+  --text:#f0ede8; --text2:rgba(240,237,232,0.55); --text3:rgba(240,237,232,0.3);
+  --protein:#7eb8f7; --fat:#f78cb3; --carb:#6dd9ac; --danger:#f07070;
+  --mono:'DM Mono',monospace; --sans:'Noto Sans TC',sans-serif;
+  --st:env(safe-area-inset-top,0px); --sb:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscroll-behavior:none}
 
-/* ── Tab bar ── */
+/* Tab bar */
 .tab-bar{
-  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-  width:100%;max-width:430px;
-  background:rgba(15,15,15,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-top:1px solid var(--border);
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  padding-bottom:var(--sb);z-index:50;
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:430px;
+  background:rgba(15,15,15,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding-bottom:var(--sb);z-index:50;
 }
-.tab-btn{
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  padding:10px 0 8px;background:none;border:none;cursor:pointer;
-  font-size:10px;font-family:var(--sans);color:var(--text3);transition:color .2s;
-}
+.tab-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 8px;background:none;border:none;cursor:pointer;font-size:10px;font-family:var(--sans);color:var(--text3);transition:color .2s}
 .tab-btn.active{color:var(--text)}
 .tab-icon{font-size:20px;line-height:1}
 
-/* ── Pages ── */
-.page{display:none;max-width:430px;margin:0 auto;min-height:100vh;
-  padding-top:var(--st);padding-bottom:calc(var(--sb) + 68px);flex-direction:column}
+/* Pages */
+.page{display:none;max-width:430px;margin:0 auto;min-height:100vh;padding-top:var(--st);padding-bottom:calc(var(--sb) + 68px);flex-direction:column}
 .page.active{display:flex}
 
-/* ── Header ── */
+/* Header */
 .header{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
 .header-date{font-size:12px;color:var(--text3);font-family:var(--mono);letter-spacing:.08em;margin-bottom:2px}
 .header-title{font-size:22px;font-weight:700;letter-spacing:-.02em}
@@ -52,13 +47,9 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .kcal-num{font-size:16px;font-weight:700;font-family:var(--mono)}
 .kcal-label{font-size:10px;color:var(--text2);letter-spacing:.06em}
 
-/* ── Rings ── */
+/* Rings */
 .rings-section{padding:20px 20px 0;display:flex;gap:10px;align-items:stretch}
-.ring-card{
-  flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:16px;
-  padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;
-  position:relative;overflow:hidden;
-}
+.ring-card{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;overflow:hidden}
 .ring-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
 .ring-card.protein::before{background:var(--protein)}
 .ring-card.fat::before{background:var(--fat)}
@@ -73,17 +64,13 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .ring-remain.protein{color:var(--protein)}.ring-remain.fat{color:var(--fat)}.ring-remain.carb{color:var(--carb)}.ring-remain.over{color:var(--danger)}
 .ring-sub{font-size:10px;color:var(--text3)}
 
-/* ── Section ── */
+/* Log */
 .log-section{padding:20px 20px 0;flex:1}
 .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .section-label{font-size:11px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono)}
 .clear-btn{font-size:11px;color:var(--danger);background:none;border:none;cursor:pointer;font-family:var(--sans)}
-
 .log-list{display:flex;flex-direction:column;gap:6px}
-.log-item{
-  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
-  padding:11px 13px;display:flex;align-items:center;gap:10px;animation:slideIn .2s ease;
-}
+.log-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:10px;animation:slideIn .2s ease}
 @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 .log-name{flex:1;font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .log-macros{display:flex;gap:8px;flex-shrink:0}
@@ -94,25 +81,22 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .empty-state{text-align:center;padding:28px 0;color:var(--text3);font-size:13px;line-height:2}
 .empty-icon{font-size:28px;display:block;margin-bottom:8px}
 
-/* ── Bottom FAB (today page) ── */
+/* FAB */
 .add-fab{
-  position:fixed;bottom:calc(var(--sb) + 68px + 12px);right:calc(50% - 215px + 16px);
-  width:52px;height:52px;border-radius:50%;
-  background:var(--text);color:var(--bg);border:none;
-  font-size:24px;font-weight:300;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:40;transition:opacity .15s;
+  position:fixed;bottom:calc(var(--sb) + 68px + 12px);right:calc(50% - 215px + 16px);
+  width:52px;height:52px;border-radius:50%;background:var(--text);color:var(--bg);border:none;
+  font-size:24px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:40;transition:opacity .15s;
 }
 .add-fab:active{opacity:.8}
 @media(max-width:430px){.add-fab{right:16px}}
 
-/* ── AI Section ── */
-.ai-section{padding:20px 20px 32px;margin-top:4px;border-top:1px solid var(--border)}
+/* AI Section */
+.ai-section{padding:20px 20px 32px;margin-top:4px;border-top:none}
 .ai-section-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .ai-badge{font-size:10px;font-family:var(--mono);letter-spacing:.1em;color:#7eb8f7;font-weight:700;background:rgba(126,184,247,.1);border:1px solid rgba(126,184,247,.25);border-radius:6px;padding:2px 7px}
 .ai-title{font-size:15px;font-weight:700}
 .ai-hint{font-size:12px;color:var(--text3);margin-bottom:14px;line-height:1.6}
-
 .api-key-section{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:14px;transition:border-color .3s}
 .api-key-top{display:flex;justify-content:space-between;align-items:center}
 .api-status{display:flex;align-items:center;gap:6px}
@@ -127,7 +111,6 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .api-key-inp:focus{border-color:rgba(255,255,255,.3)}
 .api-save-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--sans);white-space:nowrap}
 .api-key-hint{font-size:10px;color:var(--text3);margin-top:8px;line-height:1.7}
-
 .ai-input-row{display:flex;gap:8px;margin-bottom:10px}
 .ai-inp{flex:1;background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:13px 14px;font-size:15px;color:var(--text);font-family:var(--sans);outline:none;-webkit-appearance:none}
 .ai-inp:focus{border-color:rgba(126,184,247,.5);box-shadow:0 0 0 3px rgba(126,184,247,.08)}
@@ -135,7 +118,6 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .ai-ask-btn{background:rgba(126,184,247,.1);border:1px solid rgba(126,184,247,.3);border-radius:12px;padding:13px 16px;font-size:14px;font-weight:700;color:#7eb8f7;cursor:pointer;white-space:nowrap;font-family:var(--sans);transition:background .15s;min-width:60px}
 .ai-ask-btn:active{background:rgba(126,184,247,.2)}
 .ai-ask-btn:disabled{opacity:.4;cursor:not-allowed}
-
 .ai-result{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:none;animation:slideIn .25s ease}
 .ai-result.visible{display:block}
 .ai-result-header{padding:12px 14px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
@@ -148,7 +130,18 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .ai-macro-val{font-size:22px;font-weight:700;font-family:var(--mono)}
 .ai-macro-val.p{color:var(--protein)}.ai-macro-val.f{color:var(--fat)}.ai-macro-val.c{color:var(--carb)}
 .ai-macro-unit{font-size:10px;color:var(--text3)}
-.ai-note{padding:0 14px 12px;font-size:11px;color:var(--text3);line-height:1.6}
+.ai-note{padding:0 14px 10px;font-size:11px;color:var(--text3);line-height:1.6}
+
+/* AI date selector */
+.ai-date-row{padding:0 14px 14px;display:flex;gap:8px;align-items:center}
+.ai-date-label{font-size:12px;color:var(--text2);white-space:nowrap}
+.ai-date-select{
+  flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;
+  padding:9px 12px;font-size:13px;color:var(--text);font-family:var(--sans);
+  outline:none;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,237,232,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;
+}
 .ai-add-btn{margin:0 14px 14px;width:calc(100% - 28px);background:rgba(109,217,172,.1);border:1px solid rgba(109,217,172,.3);border-radius:10px;padding:12px;font-size:14px;font-weight:700;color:var(--carb);cursor:pointer;font-family:var(--sans);transition:background .15s}
 .ai-add-btn:active{background:rgba(109,217,172,.2)}
 .ai-added-msg{text-align:center;padding:16px;font-size:13px;color:var(--carb)}
@@ -158,52 +151,40 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 @keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
 .ai-error{padding:14px;font-size:13px;color:var(--danger);line-height:1.7}
 
-/* ── History Page ── */
+/* History */
 .hist-header{padding:20px 20px 16px}
 .hist-title{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
 .hist-sub{font-size:12px;color:var(--text3);font-family:var(--mono)}
-
 .hist-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px}
 .hist-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px}
 .hist-card-label{font-size:11px;color:var(--text3);letter-spacing:.08em;font-family:var(--mono);margin-bottom:6px;text-transform:uppercase}
 .hist-card-val{font-size:24px;font-weight:700;font-family:var(--mono)}
 .hist-card-unit{font-size:11px;color:var(--text2);margin-top:2px}
 .hist-card-val.p{color:var(--protein)}.hist-card-val.f{color:var(--fat)}.hist-card-val.c{color:var(--carb)}.hist-card-val.k{color:var(--text)}
-
 .hist-section{padding:0 20px}
-.hist-day-block{margin-bottom:20px}
-.hist-day-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 14px;background:var(--bg2);border:1px solid var(--border);
-  border-radius:12px 12px 0 0;cursor:pointer;
-}
+.hist-day-block{margin-bottom:12px}
+.hist-day-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:12px 12px 0 0;cursor:pointer}
+.hist-day-header.collapsed{border-radius:12px}
 .hist-day-date{font-size:13px;font-weight:700}
-.hist-day-macros{display:flex;gap:10px}
+.hist-day-right{display:flex;align-items:center;gap:8px}
+.hist-day-macros{display:flex;gap:8px}
 .hist-day-macro{font-size:11px;font-family:var(--mono)}
 .hist-day-macro.p{color:var(--protein)}.hist-day-macro.f{color:var(--fat)}.hist-day-macro.c{color:var(--carb)}
 .hist-day-kcal{font-size:11px;font-family:var(--mono);color:var(--text3)}
 .hist-expand-icon{font-size:12px;color:var(--text3);transition:transform .2s;flex-shrink:0}
 .hist-expand-icon.open{transform:rotate(180deg)}
-
 .hist-items{display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;overflow:hidden}
 .hist-items.open{display:block}
-.hist-item{
-  display:grid;grid-template-columns:1fr 52px 52px 52px;
-  padding:9px 14px;font-size:12px;border-top:1px solid var(--border);align-items:center;gap:4px;
-}
-.hist-item:first-child{border-top:none}
+.hist-col-header{display:grid;grid-template-columns:1fr 52px 52px 52px;padding:6px 14px;gap:4px}
+.hist-col-label{font-size:10px;color:var(--text3);font-family:var(--mono);letter-spacing:.06em;text-align:right}
+.hist-col-label:first-child{text-align:left}
+.hist-item{display:grid;grid-template-columns:1fr 52px 52px 52px;padding:9px 14px;font-size:12px;border-top:1px solid var(--border);align-items:center;gap:4px}
 .hist-item-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hist-item-val{text-align:right;font-family:var(--mono);font-size:12px}
 .hist-item-val.p{color:var(--protein)}.hist-item-val.f{color:var(--fat)}.hist-item-val.c{color:var(--carb)}
-.hist-col-header{
-  display:grid;grid-template-columns:1fr 52px 52px 52px;
-  padding:6px 14px;gap:4px;
-}
-.hist-col-label{font-size:10px;color:var(--text3);font-family:var(--mono);letter-spacing:.06em;text-align:right}
-.hist-col-label:first-child{text-align:left}
 .hist-empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px;line-height:2}
 
-/* ── Modal ── */
+/* Modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal{width:100%;max-width:430px;margin:0 auto;background:var(--bg2);border-radius:24px 24px 0 0;border:1px solid var(--border2);padding:20px 20px calc(20px + var(--sb));transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
@@ -217,458 +198,1169 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscr
 .inp:focus{border-color:rgba(255,255,255,.3);box-shadow:0 0 0 2px rgba(126,184,247,.1)}
 .inp.mono{font-family:var(--mono)}
 .inp::placeholder{color:var(--text3)}
+/* date input */
+input[type=date].inp{color-scheme:dark;font-family:var(--mono);font-size:14px}
 .modal-submit{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:14px;padding:15px;font-size:15px;font-weight:700;font-family:var(--sans);cursor:pointer;margin-top:8px;transition:opacity .15s}
 .modal-submit:active{opacity:.85}
 </style>
 </head>
 <body>
 
-<!-- ══ Page: Today ══ -->
+<!-- Page: Today -->
 <div class="page active" id="page-today">
-  <div class="header">
-    <div>
-      <div class="header-date" id="hdate"></div>
-      <div class="header-title">今日營養</div>
-    </div>
-    <div class="kcal-pill">
-      <div class="kcal-num" id="kcal-total">0</div>
-      <div class="kcal-label">大卡</div>
-    </div>
-  </div>
-
-  <div class="rings-section" id="rings-section"></div>
-
-  <div class="log-section">
-    <div class="section-header">
-      <span class="section-label">今日紀錄</span>
-      <button class="clear-btn" onclick="resetToday()">清空今日</button>
-    </div>
-    <div class="log-list" id="log-list"></div>
-  </div>
+  <div class="header">
+    <div>
+      <div class="header-date" id="hdate"></div>
+      <div class="header-title">今日營養</div>
+    </div>
+    <div class="kcal-pill">
+      <div class="kcal-num" id="kcal-total">0</div>
+      <div class="kcal-label">大卡</div>
+    </div>
+  </div>
+  <div class="rings-section" id="rings-section"></div>
+  <div class="log-section">
+    <div class="section-header">
+      <span class="section-label">今日紀錄</span>
+      <button class="clear-btn" onclick="resetToday()">清空今日</button>
+    </div>
+    <div class="log-list" id="log-list"></div>
+  </div>
 </div>
 
-<!-- ══ Page: AI ══ -->
+<!-- Page: AI -->
 <div class="page" id="page-ai">
-  <div class="ai-section" style="border-top:none;padding-top:calc(var(--st) + 20px)">
-    <div class="ai-section-header">
-      <span class="ai-badge">AI</span>
-      <span class="ai-title">食物營養估算</span>
-    </div>
-    <p class="ai-hint">輸入食物名稱與重量，AI 估算三大營養素，可直接加入今日紀錄。</p>
+  <div class="ai-section" style="padding-top:calc(var(--st) + 20px)">
+    <div class="ai-section-header">
+      <span class="ai-badge">AI</span>
+      <span class="ai-title">食物營養估算</span>
+    </div>
+    <p class="ai-hint">輸入食物名稱與重量，AI 估算三大營養素，選擇日期後加入紀錄。</p>
 
-    <div class="api-key-section" id="api-key-section">
-      <div class="api-key-top">
-        <div class="api-status">
-          <div class="api-dot" id="api-dot"></div>
-          <span class="api-status-text" id="api-status-text">尚未設定 API Key</span>
-        </div>
-        <button class="api-key-toggle" id="api-toggle-btn" onclick="toggleApiKeyPanel()">設定 ▾</button>
-      </div>
-      <div class="api-key-panel" id="api-key-panel" style="display:none">
-        <div class="api-key-row">
-          <input class="api-key-inp" id="api-key-inp" type="password" placeholder="sk-ant-api03-…" autocomplete="off"/>
-          <button class="api-save-btn" id="api-save-btn" onclick="saveApiKey()">儲存</button>
-        </div>
-        <div class="api-key-hint">🔒 Key 僅存於本機，不會上傳任何伺服器。<br>前往 <strong style="color:var(--text2)">console.anthropic.com → API Keys</strong> 免費取得。</div>
-      </div>
-    </div>
+    <div class="api-key-section" id="api-key-section">
+      <div class="api-key-top">
+        <div class="api-status">
+          <div class="api-dot" id="api-dot"></div>
+          <span class="api-status-text" id="api-status-text">尚未設定 API Key</span>
+        </div>
+        <button class="api-key-toggle" id="api-toggle-btn" onclick="toggleApiKeyPanel()">設定 ▾</button>
+      </div>
+      <div class="api-key-panel" id="api-key-panel" style="display:none">
+        <div class="api-key-row" style="margin-top:12px">
+          <input class="api-key-inp" id="api-key-inp" type="password" placeholder="sk-ant-api03-…" autocomplete="off"/>
+          <button class="api-save-btn" id="api-save-btn" onclick="saveApiKey()">儲存</button>
+        </div>
+        <div class="api-key-hint">🔒 Key 僅存於本機，不會上傳任何伺服器。<br>前往 <strong style="color:var(--text2)">console.anthropic.com → API Keys</strong> 免費取得。</div>
+      </div>
+    </div>
 
-    <div class="ai-input-row">
-      <input class="ai-inp" id="ai-inp" type="text" placeholder="例：超商烤地瓜 155g"/>
-      <button class="ai-ask-btn" id="ai-ask-btn" onclick="askAI()">估算</button>
-    </div>
+    <div class="ai-input-row">
+      <input class="ai-inp" id="ai-inp" type="text" placeholder="例：超商烤地瓜 155g"/>
+      <button class="ai-ask-btn" id="ai-ask-btn" onclick="askAI()">估算</button>
+    </div>
 
-    <div class="ai-result" id="ai-result">
-      <div class="ai-thinking" id="ai-thinking" style="display:none">
-        <div class="ai-dots"><span></span><span></span><span></span></div>
-        AI 正在估算中…
-      </div>
-      <div id="ai-result-body"></div>
-    </div>
-  </div>
+    <div class="ai-result" id="ai-result">
+      <div class="ai-thinking" id="ai-thinking" style="display:none">
+        <div class="ai-dots"><span></span><span></span><span></span></div>
+        AI 正在估算中…
+      </div>
+      <div id="ai-result-body"></div>
+    </div>
+  </div>
 </div>
 
-<!-- ══ Page: History ══ -->
+<!-- Page: History -->
 <div class="page" id="page-history">
-  <div class="hist-header">
-    <div class="hist-title">歷史紀錄</div>
-    <div class="hist-sub" id="hist-sub">載入中…</div>
-  </div>
-  <div class="hist-summary-grid" id="hist-summary"></div>
-  <div class="hist-section" id="hist-section"></div>
+  <div class="hist-header">
+    <div class="hist-title">歷史紀錄</div>
+    <div class="hist-sub" id="hist-sub">載入中…</div>
+  </div>
+  <div class="hist-summary-grid" id="hist-summary"></div>
+  <div class="hist-section" id="hist-section"></div>
 </div>
 
 <!-- Tab bar -->
 <div class="tab-bar">
-  <button class="tab-btn active" id="tab-today" onclick="switchTab('today')">
-    <span class="tab-icon">◎</span>今日
-  </button>
-  <button class="tab-btn" id="tab-ai" onclick="switchTab('ai')">
-    <span class="tab-icon">✦</span>AI 估算
-  </button>
-  <button class="tab-btn" id="tab-history" onclick="switchTab('history')">
-    <span class="tab-icon">≡</span>歷史
-  </button>
+  <button class="tab-btn active" id="tab-today" onclick="switchTab('today')">
+    <span class="tab-icon">◎</span>今日
+  </button>
+  <button class="tab-btn" id="tab-ai" onclick="switchTab('ai')">
+    <span class="tab-icon">✦</span>AI 估算
+  </button>
+  <button class="tab-btn" id="tab-history" onclick="switchTab('history')">
+    <span class="tab-icon">≡</span>歷史
+  </button>
 </div>
 
 <!-- FAB -->
 <button class="add-fab" id="add-fab" onclick="openModal()">＋</button>
 
-<!-- Modal -->
+<!-- Modal: manual add (with date picker) -->
 <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal">
-    <div class="modal-handle"></div>
-    <div class="modal-title">新增飲食紀錄</div>
-    <div class="input-full">
-      <div class="input-label">食物名稱</div>
-      <input class="inp" id="inp-name" type="text" placeholder="例：雞胸肉 100g"/>
-    </div>
-    <div class="input-grid">
-      <div>
-        <div class="input-label" style="color:#7eb8f7">蛋白質 (g)</div>
-        <input class="inp mono" id="inp-p" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
-      </div>
-      <div>
-        <div class="input-label" style="color:#f78cb3">脂肪 (g)</div>
-        <input class="inp mono" id="inp-f" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
-      </div>
-      <div>
-        <div class="input-label" style="color:#6dd9ac">碳水 (g)</div>
-        <input class="inp mono" id="inp-c" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
-      </div>
-    </div>
-    <button class="modal-submit" onclick="addEntry()">記錄</button>
-  </div>
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">新增飲食紀錄</div>
+    <div class="input-full">
+      <div class="input-label">日期</div>
+      <input class="inp" id="inp-date" type="date"/>
+    </div>
+    <div class="input-full">
+      <div class="input-label">食物名稱</div>
+      <input class="inp" id="inp-name" type="text" placeholder="例：雞胸肉 100g"/>
+    </div>
+    <div class="input-grid">
+      <div>
+        <div class="input-label" style="color:#7eb8f7">蛋白質 (g)</div>
+        <input class="inp mono" id="inp-p" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+      <div>
+        <div class="input-label" style="color:#f78cb3">脂肪 (g)</div>
+        <input class="inp mono" id="inp-f" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+      <div>
+        <div class="input-label" style="color:#6dd9ac">碳水 (g)</div>
+        <input class="inp mono" id="inp-c" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+    </div>
+    <button class="modal-submit" onclick="addEntry()">記錄</button>
+  </div>
 </div>
 
 <script>
-/* ── Constants ── */
 const GOALS = {protein:84, fat:25, carb:140};
 const CIRC = 2 * Math.PI * 22;
-const MAX_HISTORY_DAYS = 60;
 
-/* ── State ── */
-let todayEntries = [];
+const now = new Date();
+const todayStr = localDateStr(now);
 let apiKey = '';
 let lastEstimate = null;
-const todayStr = new Date().toLocaleDateString('zh-TW');
+
+/* ── Date helpers ── */
+function localDateStr(d){
+  return d.getFullYear()+'-'
+    +String(d.getMonth()+1).padStart(2,'0')+'-'
+    +String(d.getDate()).padStart(2,'0');
+}
+function displayDate(isoStr){
+  const [y,m,d] = isoStr.split('-');
+  const dt = new Date(Number(y),Number(m)-1,Number(d));
+  if(isoStr===todayStr) return '今天';
+  const yesterday = new Date(now); yesterday.setDate(now.getDate()-1);
+  if(isoStr===localDateStr(yesterday)) return '昨天';
+  return dt.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'short'});
+}
+
+/* ── Storage ── */
+function storageKey(iso){ return 'nt_day_'+iso; }
+
+function getDayEntries(iso){
+  try{ return JSON.parse(localStorage.getItem(storageKey(iso))||'[]'); }
+  catch(e){ return []; }
+}
+
+function saveDayEntries(iso, arr){
+  try{
+    localStorage.setItem(storageKey(iso), JSON.stringify(arr));
+    let dates = JSON.parse(localStorage.getItem('nt_dates')||'[]');
+    if(!dates.includes(iso)){ dates.push(iso); localStorage.setItem('nt_dates',JSON.stringify(dates)); }
+  }catch(e){}
+}
+
+function getAllDates(){
+  try{
+    return JSON.parse(localStorage.getItem('nt_dates')||'[]')
+      .sort((a,b)=> new Date(b)-new Date(a));
+  }catch(e){ return []; }
+}
 
 /* ── Helpers ── */
 const $ = id => document.getElementById(id);
 function r1(n){ return Math.round(n*10)/10; }
-function kcalOf(t){ return Math.round(t.protein*4 + t.fat*9 + t.carb*4); }
+function kcalOf(t){ return Math.round(t.protein*4+t.fat*9+t.carb*4); }
 function sumEntries(arr){ return arr.reduce((a,e)=>({protein:a.protein+e.protein,fat:a.fat+e.fat,carb:a.carb+e.carb}),{protein:0,fat:0,carb:0}); }
 
-/* ── Storage ── */
-function storageKey(dateStr){ return 'nt_day_' + dateStr.replace(/\//g,'-'); }
-
-function loadToday(){
-  try{ todayEntries = JSON.parse(localStorage.getItem(storageKey(todayStr)) || '[]'); }
-  catch(e){ todayEntries=[]; }
-}
-
-function saveToday(){
-  try{
-    localStorage.setItem(storageKey(todayStr), JSON.stringify(todayEntries));
-    // record known dates index
-    let dates = JSON.parse(localStorage.getItem('nt_dates') || '[]');
-    if(!dates.includes(todayStr)){ dates.push(todayStr); localStorage.setItem('nt_dates', JSON.stringify(dates)); }
-  }catch(e){}
-}
-
-function getAllDates(){
-  try{
-    let dates = JSON.parse(localStorage.getItem('nt_dates') || '[]');
-    return dates.sort((a,b)=> new Date(b.replace(/\//g,'-')) - new Date(a.replace(/\//g,'-')));
-  }catch(e){ return []; }
-}
-
-function getDayEntries(dateStr){
-  try{ return JSON.parse(localStorage.getItem(storageKey(dateStr)) || '[]'); }
-  catch(e){ return []; }
-}
-
 /* ── Tab ── */
-let currentTab = 'today';
 function switchTab(tab){
-  currentTab = tab;
-  ['today','ai','history'].forEach(t=>{
-    $('page-'+t).classList.toggle('active', t===tab);
-    $('tab-'+t).classList.toggle('active', t===tab);
-  });
-  $('add-fab').style.display = (tab==='today') ? 'flex' : 'none';
-  if(tab==='history') renderHistory();
+  ['today','ai','history'].forEach(t=>{
+    $('page-'+t).classList.toggle('active',t===tab);
+    $('tab-'+t).classList.toggle('active',t===tab);
+  });
+  $('add-fab').style.display = (tab==='today')?'flex':'none';
+  if(tab==='history') renderHistory();
 }
 
 /* ── Render Today ── */
 function renderRings(){
-  const t = sumEntries(todayEntries);
-  const macros = [
-    {label:'蛋白質', val:t.protein, goal:GOALS.protein, cls:'protein', col:'#7eb8f7'},
-    {label:'脂肪',   val:t.fat,     goal:GOALS.fat,     cls:'fat',     col:'#f78cb3'},
-    {label:'碳水',   val:t.carb,    goal:GOALS.carb,    cls:'carb',    col:'#6dd9ac'},
-  ];
-  $('rings-section').innerHTML = macros.map(m=>{
-    const pct = Math.min(1, m.val/m.goal);
-    const offset = CIRC*(1-pct);
-    const over = m.val > m.goal;
-    const pctDisp = Math.round(pct*100);
-    const fillCol = over ? '#f07070' : m.col;
-    return `<div class="ring-card ${m.cls}${over?' over':''}">
-      <svg class="ring-svg" viewBox="0 0 56 56">
-        <circle class="ring-bg" cx="28" cy="28" r="22"/>
-        <circle class="ring-fill ${over?'over':m.cls}" cx="28" cy="28" r="22"
-          stroke-dasharray="${CIRC}" stroke-dashoffset="${offset}" transform="rotate(-90 28 28)"/>
-        <text x="28" y="33" text-anchor="middle"
-          font-family="DM Mono,monospace" font-size="11" font-weight="700" fill="${fillCol}">${pctDisp}%</text>
-      </svg>
-      <div class="ring-name">${m.label}</div>
-      <div class="ring-remain ${over?'over':m.cls}">${over?'+'+r1(m.val-m.goal):r1(m.goal-m.val)}g</div>
-      <div class="ring-sub">${over?'⚠ 超標':'尚可攝取'}</div>
-    </div>`;
-  }).join('');
-  $('kcal-total').textContent = kcalOf(t);
+  const entries = getDayEntries(todayStr);
+  const t = sumEntries(entries);
+  const macros=[
+    {label:'蛋白質',val:t.protein,goal:GOALS.protein,cls:'protein',col:'#7eb8f7'},
+    {label:'脂肪',  val:t.fat,    goal:GOALS.fat,    cls:'fat',    col:'#f78cb3'},
+    {label:'碳水',  val:t.carb,   goal:GOALS.carb,   cls:'carb',   col:'#6dd9ac'},
+  ];
+  $('rings-section').innerHTML = macros.map(m=>{
+    const pct=Math.min(1,m.val/m.goal), offset=CIRC*(1-pct), over=m.val>m.goal;
+    const col = over?'#f07070':m.col;
+    return `<div class="ring-card ${m.cls}${over?' over':''}">
+      <svg class="ring-svg" viewBox="0 0 56 56">
+        <circle class="ring-bg" cx="28" cy="28" r="22"/>
+        <circle class="ring-fill ${over?'over':m.cls}" cx="28" cy="28" r="22"
+          stroke-dasharray="${CIRC}" stroke-dashoffset="${offset}" transform="rotate(-90 28 28)"/>
+        <text x="28" y="33" text-anchor="middle" font-family="DM Mono,monospace" font-size="11" font-weight="700" fill="${col}">${Math.round(pct*100)}%</text>
+      </svg>
+      <div class="ring-name">${m.label}</div>
+      <div class="ring-remain ${over?'over':m.cls}">${over?'+'+r1(m.val-m.goal):r1(m.goal-m.val)}g</div>
+      <div class="ring-sub">${over?'⚠ 超標':'尚可攝取'}</div>
+    </div>`;
+  }).join('');
+  $('kcal-total').textContent = kcalOf(t);
 }
 
 function renderLog(){
-  const el = $('log-list');
-  if(todayEntries.length===0){
-    el.innerHTML=`<div class="empty-state"><span class="empty-icon">🥗</span>尚未記錄任何飲食<br>點 ＋ 或用 AI 估算</div>`;
-    return;
-  }
-  el.innerHTML = todayEntries.map((e,i)=>`
-    <div class="log-item">
-      <span class="log-name">${e.name}</span>
-      <div class="log-macros">
-        <span class="log-macro p">${r1(e.protein)}蛋</span>
-        <span class="log-macro f">${r1(e.fat)}脂</span>
-        <span class="log-macro c">${r1(e.carb)}碳</span>
-      </div>
-      <button class="log-del" onclick="deleteEntry(${i})">×</button>
-    </div>`).join('');
+  const entries = getDayEntries(todayStr);
+  const el=$('log-list');
+  if(entries.length===0){
+    el.innerHTML=`<div class="empty-state"><span class="empty-icon">🥗</span>尚未記錄任何飲食<br>點 ＋ 或用 AI 估算</div>`;
+    return;
+  }
+  el.innerHTML=entries.map((e,i)=>`
+    <div class="log-item">
+      <span class="log-name">${e.name}</span>
+      <div class="log-macros">
+        <span class="log-macro p">${r1(e.protein)}蛋</span>
+        <span class="log-macro f">${r1(e.fat)}脂</span>
+        <span class="log-macro c">${r1(e.carb)}碳</span>
+      </div>
+      <button class="log-del" onclick="deleteEntry('${todayStr}',${i})">×</button>
+    </div>`).join('');
 }
 
 function renderToday(){ renderRings(); renderLog(); }
 
-/* ── Render History ── */
-function renderHistory(){
-  const dates = getAllDates();
-  if(dates.length===0){
-    $('hist-summary').innerHTML='';
-    $('hist-section').innerHTML=`<div class="hist-empty">📋 尚無歷史紀錄<br>開始記錄後會自動儲存在這裡</div>`;
-    $('hist-sub').textContent='暫無資料';
-    return;
-  }
-
-  // Overall averages
-  let totalP=0,totalF=0,totalC=0,totalK=0,days=0;
-  dates.forEach(d=>{
-    const e = getDayEntries(d);
-    if(e.length===0) return;
-    const t = sumEntries(e);
-    totalP+=t.protein; totalF+=t.fat; totalC+=t.carb; totalK+=kcalOf(t); days++;
-  });
-  const avg = n => days>0 ? r1(n/days) : 0;
-  $('hist-sub').textContent = `共 ${days} 天紀錄`;
-  $('hist-summary').innerHTML = `
-    <div class="hist-card"><div class="hist-card-label">平均蛋白質</div><div class="hist-card-val p">${avg(totalP)}</div><div class="hist-card-unit">公克 / 天</div></div>
-    <div class="hist-card"><div class="hist-card-label">平均脂肪</div><div class="hist-card-val f">${avg(totalF)}</div><div class="hist-card-unit">公克 / 天</div></div>
-    <div class="hist-card"><div class="hist-card-label">平均碳水</div><div class="hist-card-val c">${avg(totalC)}</div><div class="hist-card-unit">公克 / 天</div></div>
-    <div class="hist-card"><div class="hist-card-label">平均熱量</div><div class="hist-card-val k">${avg(totalK)}</div><div class="hist-card-unit">大卡 / 天</div></div>`;
-
-  // Day-by-day
-  const sect = $('hist-section');
-  sect.innerHTML = dates.map(d=>{
-    const entries = getDayEntries(d);
-    if(entries.length===0) return '';
-    const t = sumEntries(entries);
-    const k = kcalOf(t);
-    const isToday = d===todayStr;
-    const label = isToday ? '今天' : d;
-    return `<div class="hist-day-block">
-      <div class="hist-day-header" onclick="toggleDay(this)">
-        <span class="hist-day-date">${label}</span>
-        <div style="display:flex;align-items:center;gap:8px">
-          <div class="hist-day-macros">
-            <span class="hist-day-macro p">${r1(t.protein)}蛋</span>
-            <span class="hist-day-macro f">${r1(t.fat)}脂</span>
-            <span class="hist-day-macro c">${r1(t.carb)}碳</span>
-          </div>
-          <span class="hist-day-kcal">${k}kcal</span>
-          <span class="hist-expand-icon">▾</span>
-        </div>
-      </div>
-      <div class="hist-items">
-        <div class="hist-col-header">
-          <span class="hist-col-label">食物</span>
-          <span class="hist-col-label">蛋白質g</span>
-          <span class="hist-col-label">脂肪g</span>
-          <span class="hist-col-label">碳水g</span>
-        </div>
-        ${entries.map(e=>`
-        <div class="hist-item">
-          <span class="hist-item-name">${e.name}</span>
-          <span class="hist-item-val p">${r1(e.protein)}</span>
-          <span class="hist-item-val f">${r1(e.fat)}</span>
-          <span class="hist-item-val c">${r1(e.carb)}</span>
-        </div>`).join('')}
-        <div class="hist-item" style="background:rgba(255,255,255,0.03);font-weight:700">
-          <span class="hist-item-name" style="color:var(--text2)">合計</span>
-          <span class="hist-item-val p">${r1(t.protein)}</span>
-          <span class="hist-item-val f">${r1(t.fat)}</span>
-          <span class="hist-item-val c">${r1(t.carb)}</span>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function toggleDay(header){
-  const items = header.nextElementSibling;
-  const icon = header.querySelector('.hist-expand-icon');
-  const open = items.classList.toggle('open');
-  icon.classList.toggle('open', open);
-}
-
-/* ── Today CRUD ── */
+/* ── CRUD ── */
 function addEntry(){
-  const name = $('inp-name').value.trim();
-  const p = parseFloat($('inp-p').value)||0;
-  const f = parseFloat($('inp-f').value)||0;
-  const c = parseFloat($('inp-c').value)||0;
-  if(!name){ $('inp-name').focus(); return; }
-  todayEntries.unshift({name, protein:p, fat:f, carb:c});
-  saveToday(); renderToday(); closeModal();
-  ['inp-name','inp-p','inp-f','inp-c'].forEach(id=>{ $(id).value=''; });
+  const iso  = $('inp-date').value || todayStr;
+  const name = $('inp-name').value.trim();
+  const p = parseFloat($('inp-p').value)||0;
+  const f = parseFloat($('inp-f').value)||0;
+  const c = parseFloat($('inp-c').value)||0;
+  if(!name){ $('inp-name').focus(); return; }
+  const arr = getDayEntries(iso);
+  arr.unshift({name,protein:p,fat:f,carb:c});
+  saveDayEntries(iso, arr);
+  renderToday();
+  closeModal();
+  ['inp-name','inp-p','inp-f','inp-c'].forEach(id=>{ $(id).value=''; });
+  $('inp-date').value = todayStr;
 }
 
-function deleteEntry(i){
-  todayEntries.splice(i,1);
-  saveToday(); renderToday();
+function deleteEntry(iso, i){
+  const arr = getDayEntries(iso);
+  arr.splice(i,1);
+  saveDayEntries(iso,arr);
+  if(iso===todayStr) renderToday();
+  else renderHistory();
 }
 
 function resetToday(){
-  if(confirm('確定清空今日所有紀錄？')){ todayEntries=[]; saveToday(); renderToday(); }
+  if(confirm('確定清空今日所有紀錄？')){
+    saveDayEntries(todayStr,[]);
+    renderToday();
+  }
 }
 
 /* ── Modal ── */
 function openModal(){
-  $('modal-overlay').classList.add('open');
-  setTimeout(()=>$('inp-name').focus(),300);
+  $('inp-date').value = todayStr;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('inp-name').focus(),300);
 }
 function closeModal(){ $('modal-overlay').classList.remove('open'); }
 function handleOverlayClick(e){ if(e.target===$('modal-overlay')) closeModal(); }
 
 /* ── API Key ── */
 function renderApiStatus(){
-  const has = !!apiKey;
-  $('api-dot').classList.toggle('active',has);
-  $('api-status-text').textContent = has?'API Key 已設定':'尚未設定 API Key';
-  $('api-status-text').classList.toggle('active',has);
-  $('api-toggle-btn').textContent = has?'變更 ▾':'設定 ▾';
+  const has=!!apiKey;
+  $('api-dot').classList.toggle('active',has);
+  $('api-status-text').textContent=has?'API Key 已設定':'尚未設定 API Key';
+  $('api-status-text').classList.toggle('active',has);
+  $('api-toggle-btn').textContent=has?'變更 ▾':'設定 ▾';
 }
-
 function toggleApiKeyPanel(){
-  const panel = $('api-key-panel');
-  const open = panel.style.display==='none';
-  panel.style.display = open?'block':'none';
-  if(open && apiKey) $('api-key-inp').value = apiKey;
-  $('api-toggle-btn').textContent = open?'收起 ▴':(apiKey?'變更 ▾':'設定 ▾');
+  const panel=$('api-key-panel'), open=panel.style.display==='none';
+  panel.style.display=open?'block':'none';
+  if(open&&apiKey) $('api-key-inp').value=apiKey;
+  $('api-toggle-btn').textContent=open?'收起 ▴':(apiKey?'變更 ▾':'設定 ▾');
 }
-
 function saveApiKey(){
-  const v = $('api-key-inp').value.trim();
-  if(!v) return;
-  apiKey=v;
-  try{ localStorage.setItem('nt_api_key',v); }catch(e){}
-  renderApiStatus();
-  const btn = $('api-save-btn');
-  btn.textContent='✓ 已儲存';
-  setTimeout(()=>{ btn.textContent='儲存'; $('api-key-panel').style.display='none'; $('api-toggle-btn').textContent='變更 ▾'; },1200);
+  const v=$('api-key-inp').value.trim();
+  if(!v) return;
+  apiKey=v;
+  try{ localStorage.setItem('nt_api_key',v); }catch(e){}
+  renderApiStatus();
+  const btn=$('api-save-btn'); btn.textContent='✓ 已儲存';
+  setTimeout(()=>{ btn.textContent='儲存'; $('api-key-panel').style.display='none'; $('api-toggle-btn').textContent='變更 ▾'; },1200);
 }
 
 /* ── AI ── */
+function buildAiDateOptions(){
+  const sel=$('ai-date-select');
+  if(!sel) return;
+  sel.innerHTML='';
+  // today + past 6 days
+  for(let i=0;i<7;i++){
+    const d=new Date(now); d.setDate(now.getDate()-i);
+    const iso=localDateStr(d);
+    const opt=document.createElement('option');
+    opt.value=iso; opt.textContent=displayDate(iso);
+    if(i===0) opt.selected=true;
+    sel.appendChild(opt);
+  }
+}
+
 async function askAI(){
-  const query = $('ai-inp').value.trim();
-  if(!query){ $('ai-inp').focus(); return; }
-  if(!apiKey){
-    $('api-key-panel').style.display='block';
-    $('api-toggle-btn').textContent='收起 ▴';
-    $('api-key-section').style.borderColor='rgba(240,112,112,.5)';
-    setTimeout(()=>{ $('api-key-section').style.borderColor=''; },2000);
-    $('api-key-inp').focus(); return;
-  }
-
-  const btn = $('ai-ask-btn');
-  const resultBox = $('ai-result');
-  const thinking = $('ai-thinking');
-  const body = $('ai-result-body');
-
-  btn.disabled=true; btn.textContent='…';
-  resultBox.classList.add('visible');
-  thinking.style.display='flex';
-  body.innerHTML='';
-
-  try{
-    const resp = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:300,
-        system:`你是食物營養資料庫專家。使用者輸入食物名稱與重量，估算三大營養素。
+  const query=$('ai-inp').value.trim();
+  if(!query){ $('ai-inp').focus(); return; }
+  if(!apiKey){
+    $('api-key-panel').style.display='block';
+    $('api-toggle-btn').textContent='收起 ▴';
+    $('api-key-section').style.borderColor='rgba(240,112,112,.5)';
+    setTimeout(()=>{ $('api-key-section').style.borderColor=''; },2000);
+    $('api-key-inp').focus(); return;
+  }
+  const btn=$('ai-ask-btn'), resultBox=$('ai-result'), thinking=$('ai-thinking'), body=$('ai-result-body');
+  btn.disabled=true; btn.textContent='…';
+  resultBox.classList.add('visible');
+  thinking.style.display='flex';
+  body.innerHTML='';
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:300,
+        system:`你是食物營養資料庫專家。使用者輸入食物名稱與重量，估算三大營養素。
 只回傳 JSON，不要有任何其他文字或 markdown：
 {"food":"食物名稱含重量","protein":數字,"fat":數字,"carb":數字,"kcal":整數,"note":"估算備註20字以內"}
 所有數字為公克，一位小數。`,
-        messages:[{role:'user',content:query}]
-      })
-    });
-    if(!resp.ok){ const e=await resp.json().catch(()=>({})); throw new Error(e.error?.message||`HTTP ${resp.status}`); }
-    const data = await resp.json();
-    const text = data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(text);
-    lastEstimate = parsed;
-    thinking.style.display='none';
-    body.innerHTML=`
-      <div class="ai-result-header">
-        <span class="ai-result-food">${parsed.food}</span>
-        <span class="ai-result-kcal">${parsed.kcal} kcal</span>
-      </div>
-      <div class="ai-macros-row">
-        <div class="ai-macro-cell"><span class="ai-macro-label p">蛋白質</span><span class="ai-macro-val p">${parsed.protein}</span><span class="ai-macro-unit">公克</span></div>
-        <div class="ai-macro-cell"><span class="ai-macro-label f">脂肪</span><span class="ai-macro-val f">${parsed.fat}</span><span class="ai-macro-unit">公克</span></div>
-        <div class="ai-macro-cell"><span class="ai-macro-label c">碳水</span><span class="ai-macro-val c">${parsed.carb}</span><span class="ai-macro-unit">公克</span></div>
-      </div>
-      ${parsed.note?`<div class="ai-note">📌 ${parsed.note}</div>`:''}
-      <button class="ai-add-btn" onclick="addFromAI()">＋ 加入今日紀錄</button>`;
-  }catch(e){
-    thinking.style.display='none';
-    body.innerHTML=`<div class="ai-error">⚠ 估算失敗：${e.message}<br><span style="font-size:11px;color:var(--text3)">請確認 API Key 是否正確</span></div>`;
-  }
-  btn.disabled=false; btn.textContent='估算';
+        messages:[{role:'user',content:query}]
+      })
+    });
+    if(!resp.ok){ const e=await resp.json().catch(()=>({})); throw new Error(e.error?.message||`HTTP ${resp.status}`); }
+    const data=await resp.json();
+    const text=data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
+    const parsed=JSON.parse(text);
+    lastEstimate=parsed;
+    thinking.style.display='none';
+
+    // Build date select options
+    let dateOpts='';
+    for(let i=0;i<7;i++){
+      const d=new Date(now); d.setDate(now.getDate()-i);
+      const iso=localDateStr(d);
+      dateOpts+=`<option value="${iso}"${i===0?' selected':''}>${displayDate(iso)}</option>`;
+    }
+
+    body.innerHTML=`
+      <div class="ai-result-header">
+        <span class="ai-result-food">${parsed.food}</span>
+        <span class="ai-result-kcal">${parsed.kcal} kcal</span>
+      </div>
+      <div class="ai-macros-row">
+        <div class="ai-macro-cell"><span class="ai-macro-label p">蛋白質</span><span class="ai-macro-val p">${parsed.protein}</span><span class="ai-macro-unit">公克</span></div>
+        <div class="ai-macro-cell"><span class="ai-macro-label f">脂肪</span><span class="ai-macro-val f">${parsed.fat}</span><span class="ai-macro-unit">公克</span></div>
+        <div class="ai-macro-cell"><span class="ai-macro-label c">碳水</span><span class="ai-macro-val c">${parsed.carb}</span><span class="ai-macro-unit">公克</span></div>
+      </div>
+      ${parsed.note?`<div class="ai-note">📌 ${parsed.note}</div>`:''}
+      <div class="ai-date-row">
+        <span class="ai-date-label">加入到</span>
+        <select class="ai-date-select" id="ai-date-select">${dateOpts}</select>
+      </div>
+      <button class="ai-add-btn" onclick="addFromAI()">＋ 加入紀錄</button>`;
+  }catch(e){
+    thinking.style.display='none';
+    body.innerHTML=`<div class="ai-error">⚠ 估算失敗：${e.message}<br><span style="font-size:11px;color:var(--text3)">請確認 API Key 是否正確</span></div>`;
+  }
+  btn.disabled=false; btn.textContent='估算';
 }
 
 function addFromAI(){
-  if(!lastEstimate) return;
-  todayEntries.unshift({name:lastEstimate.food, protein:lastEstimate.protein, fat:lastEstimate.fat, carb:lastEstimate.carb});
-  saveToday(); renderToday();
-  $('ai-result-body').innerHTML=`<div class="ai-added-msg">✓ 已加入今日紀錄</div>`;
-  setTimeout(()=>{ $('ai-result').classList.remove('visible'); $('ai-inp').value=''; lastEstimate=null; },900);
-  switchTab('today');
+  if(!lastEstimate) return;
+  const sel=$('ai-date-select');
+  const iso = sel ? sel.value : todayStr;
+  const arr=getDayEntries(iso);
+  arr.unshift({name:lastEstimate.food,protein:lastEstimate.protein,fat:lastEstimate.fat,carb:lastEstimate.carb});
+  saveDayEntries(iso,arr);
+  if(iso===todayStr) renderToday();
+  $('ai-result-body').innerHTML=`<div class="ai-added-msg">✓ 已加入「${displayDate(iso)}」的紀錄</div>`;
+  setTimeout(()=>{ $('ai-result').classList.remove('visible'); $('ai-inp').value=''; lastEstimate=null; },1200);
+}
+
+/* ── History ── */
+function renderHistory(){
+  const dates=getAllDates();
+  if(dates.length===0){
+    $('hist-summary').innerHTML='';
+    $('hist-section').innerHTML=`<div class="hist-empty">📋 尚無歷史紀錄<br>開始記錄後會自動儲存在這裡</div>`;
+    $('hist-sub').textContent='暫無資料'; return;
+  }
+  let tP=0,tF=0,tC=0,tK=0,days=0;
+  dates.forEach(d=>{ const e=getDayEntries(d); if(!e.length) return; const t=sumEntries(e); tP+=t.protein;tF+=t.fat;tC+=t.carb;tK+=kcalOf(t);days++; });
+  const avg=n=>days>0?r1(n/days):0;
+  $('hist-sub').textContent=`共 ${days} 天紀錄`;
+  $('hist-summary').innerHTML=`
+    <div class="hist-card"><div class="hist-card-label">平均蛋白質</div><div class="hist-card-val p">${avg(tP)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均脂肪</div><div class="hist-card-val f">${avg(tF)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均碳水</div><div class="hist-card-val c">${avg(tC)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均熱量</div><div class="hist-card-val k">${avg(tK)}</div><div class="hist-card-unit">大卡 / 天</div></div>`;
+  $('hist-section').innerHTML=dates.map(iso=>{
+    const entries=getDayEntries(iso);
+    if(!entries.length) return '';
+    const t=sumEntries(entries), k=kcalOf(t);
+    return `<div class="hist-day-block">
+      <div class="hist-day-header collapsed" onclick="toggleDay(this)">
+        <span class="hist-day-date">${displayDate(iso)}</span>
+        <div class="hist-day-right">
+          <div class="hist-day-macros">
+            <span class="hist-day-macro p">${r1(t.protein)}蛋</span>
+            <span class="hist-day-macro f">${r1(t.fat)}脂</span>
+            <span class="hist-day-macro c">${r1(t.carb)}碳</span>
+          </div>
+          <span class="hist-day-kcal">${k}kcal</span>
+          <span class="hist-expand-icon">▾</span>
+        </div>
+      </div>
+      <div class="hist-items">
+        <div class="hist-col-header">
+          <span class="hist-col-label">食物</span>
+          <span class="hist-col-label">蛋白g</span>
+          <span class="hist-col-label">脂肪g</span>
+          <span class="hist-col-label">碳水g</span>
+        </div>
+        ${entries.map((e,i)=>`
+        <div class="hist-item">
+          <span class="hist-item-name">${e.name}</span>
+          <span class="hist-item-val p">${r1(e.protein)}</span>
+          <span class="hist-item-val f">${r1(e.fat)}</span>
+          <span class="hist-item-val c">${r1(e.carb)}</span>
+        </div>`).join('')}
+        <div class="hist-item" style="background:rgba(255,255,255,.03);font-weight:700">
+          <span class="hist-item-name" style="color:var(--text2)">合計</span>
+          <span class="hist-item-val p">${r1(t.protein)}</span>
+          <span class="hist-item-val f">${r1(t.fat)}</span>
+          <span class="hist-item-val c">${r1(t.carb)}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDay(header){
+  const items=header.nextElementSibling;
+  const icon=header.querySelector('.hist-expand-icon');
+  const open=items.classList.toggle('open');
+  icon.classList.toggle('open',open);
+  header.classList.toggle('collapsed',!open);
 }
 
 /* ── Keyboard ── */
-$('ai-inp').addEventListener('keydown', e=>{ if(e.key==='Enter') askAI(); });
+$('ai-inp').addEventListener('keydown',e=>{ if(e.key==='Enter') askAI(); });
 
 /* ── Init ── */
-$('hdate').textContent = new Date().toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'long'});
-try{ apiKey = localStorage.getItem('nt_api_key')||''; }catch(e){}
-loadToday();
+$('hdate').textContent = now.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'long'});
+try{ apiKey=localStorage.getItem('nt_api_key')||''; }catch(e){}
+
+// ensure today is in dates index
+try{
+  let dates=JSON.parse(localStorage.getItem('nt_dates')||'[]');
+  if(!dates.includes(todayStr)){ dates.push(todayStr); localStorage.setItem('nt_dates',JSON.stringify(dates)); }
+}catch(e){}
+
+renderApiStatus();
+renderToday();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="營養追蹤">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f0f0f">
+<title>每日營養追蹤</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0f0f0f; --bg2:#1a1a1a; --bg3:#222;
+  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.15);
+  --text:#f0ede8; --text2:rgba(240,237,232,0.55); --text3:rgba(240,237,232,0.3);
+  --protein:#7eb8f7; --fat:#f78cb3; --carb:#6dd9ac; --danger:#f07070;
+  --mono:'DM Mono',monospace; --sans:'Noto Sans TC',sans-serif;
+  --st:env(safe-area-inset-top,0px); --sb:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--text);font-family:var(--sans);overscroll-behavior:none}
+
+/* Tab bar */
+.tab-bar{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:430px;
+  background:rgba(15,15,15,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding-bottom:var(--sb);z-index:50;
+}
+.tab-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 8px;background:none;border:none;cursor:pointer;font-size:10px;font-family:var(--sans);color:var(--text3);transition:color .2s}
+.tab-btn.active{color:var(--text)}
+.tab-icon{font-size:20px;line-height:1}
+
+/* Pages */
+.page{display:none;max-width:430px;margin:0 auto;min-height:100vh;padding-top:var(--st);padding-bottom:calc(var(--sb) + 68px);flex-direction:column}
+.page.active{display:flex}
+
+/* Header */
+.header{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
+.header-date{font-size:12px;color:var(--text3);font-family:var(--mono);letter-spacing:.08em;margin-bottom:2px}
+.header-title{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.kcal-pill{background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:6px 14px;text-align:center;min-width:60px}
+.kcal-num{font-size:16px;font-weight:700;font-family:var(--mono)}
+.kcal-label{font-size:10px;color:var(--text2);letter-spacing:.06em}
+
+/* Rings */
+.rings-section{padding:20px 20px 0;display:flex;gap:10px;align-items:stretch}
+.ring-card{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;overflow:hidden}
+.ring-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
+.ring-card.protein::before{background:var(--protein)}
+.ring-card.fat::before{background:var(--fat)}
+.ring-card.carb::before{background:var(--carb)}
+.ring-card.over::before{background:var(--danger)}
+.ring-svg{width:56px;height:56px}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.07);stroke-width:5}
+.ring-fill{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1)}
+.ring-fill.protein{stroke:var(--protein)}.ring-fill.fat{stroke:var(--fat)}.ring-fill.carb{stroke:var(--carb)}.ring-fill.over{stroke:var(--danger)}
+.ring-name{font-size:11px;color:var(--text2);letter-spacing:.03em}
+.ring-remain{font-size:14px;font-weight:700;font-family:var(--mono)}
+.ring-remain.protein{color:var(--protein)}.ring-remain.fat{color:var(--fat)}.ring-remain.carb{color:var(--carb)}.ring-remain.over{color:var(--danger)}
+.ring-sub{font-size:10px;color:var(--text3)}
+
+/* Log */
+.log-section{padding:20px 20px 0;flex:1}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.section-label{font-size:11px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono)}
+.clear-btn{font-size:11px;color:var(--danger);background:none;border:none;cursor:pointer;font-family:var(--sans)}
+.log-list{display:flex;flex-direction:column;gap:6px}
+.log-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:10px;animation:slideIn .2s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.log-name{flex:1;font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.log-macros{display:flex;gap:8px;flex-shrink:0}
+.log-macro{font-size:11px;font-family:var(--mono)}
+.log-macro.p{color:var(--protein)}.log-macro.f{color:var(--fat)}.log-macro.c{color:var(--carb)}
+.log-del{background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0}
+.log-del:active{color:var(--danger)}
+.empty-state{text-align:center;padding:28px 0;color:var(--text3);font-size:13px;line-height:2}
+.empty-icon{font-size:28px;display:block;margin-bottom:8px}
+
+/* FAB */
+.add-fab{
+  position:fixed;bottom:calc(var(--sb) + 68px + 12px);right:calc(50% - 215px + 16px);
+  width:52px;height:52px;border-radius:50%;background:var(--text);color:var(--bg);border:none;
+  font-size:24px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:40;transition:opacity .15s;
+}
+.add-fab:active{opacity:.8}
+@media(max-width:430px){.add-fab{right:16px}}
+
+/* AI Section */
+.ai-section{padding:20px 20px 32px;margin-top:4px;border-top:none}
+.ai-section-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.ai-badge{font-size:10px;font-family:var(--mono);letter-spacing:.1em;color:#7eb8f7;font-weight:700;background:rgba(126,184,247,.1);border:1px solid rgba(126,184,247,.25);border-radius:6px;padding:2px 7px}
+.ai-title{font-size:15px;font-weight:700}
+.ai-hint{font-size:12px;color:var(--text3);margin-bottom:14px;line-height:1.6}
+.api-key-section{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:14px;transition:border-color .3s}
+.api-key-top{display:flex;justify-content:space-between;align-items:center}
+.api-status{display:flex;align-items:center;gap:6px}
+.api-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0;transition:background .3s}
+.api-dot.active{background:var(--carb)}
+.api-status-text{font-size:12px;color:var(--text3);transition:color .3s}
+.api-status-text.active{color:var(--carb)}
+.api-key-toggle{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;font-family:var(--sans)}
+.api-key-panel{margin-top:12px}
+.api-key-row{display:flex;gap:8px}
+.api-key-inp{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--text);font-family:var(--mono);outline:none;-webkit-appearance:none}
+.api-key-inp:focus{border-color:rgba(255,255,255,.3)}
+.api-save-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--sans);white-space:nowrap}
+.api-key-hint{font-size:10px;color:var(--text3);margin-top:8px;line-height:1.7}
+.ai-input-row{display:flex;gap:8px;margin-bottom:10px}
+.ai-inp{flex:1;background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:13px 14px;font-size:15px;color:var(--text);font-family:var(--sans);outline:none;-webkit-appearance:none}
+.ai-inp:focus{border-color:rgba(126,184,247,.5);box-shadow:0 0 0 3px rgba(126,184,247,.08)}
+.ai-inp::placeholder{color:var(--text3)}
+.ai-ask-btn{background:rgba(126,184,247,.1);border:1px solid rgba(126,184,247,.3);border-radius:12px;padding:13px 16px;font-size:14px;font-weight:700;color:#7eb8f7;cursor:pointer;white-space:nowrap;font-family:var(--sans);transition:background .15s;min-width:60px}
+.ai-ask-btn:active{background:rgba(126,184,247,.2)}
+.ai-ask-btn:disabled{opacity:.4;cursor:not-allowed}
+.ai-result{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:none;animation:slideIn .25s ease}
+.ai-result.visible{display:block}
+.ai-result-header{padding:12px 14px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.ai-result-food{font-size:14px;font-weight:700}
+.ai-result-kcal{font-size:12px;font-family:var(--mono);color:var(--text2)}
+.ai-macros-row{display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 14px}
+.ai-macro-cell{display:flex;flex-direction:column;gap:3px}
+.ai-macro-label{font-size:10px;letter-spacing:.06em;font-family:var(--mono)}
+.ai-macro-label.p{color:var(--protein)}.ai-macro-label.f{color:var(--fat)}.ai-macro-label.c{color:var(--carb)}
+.ai-macro-val{font-size:22px;font-weight:700;font-family:var(--mono)}
+.ai-macro-val.p{color:var(--protein)}.ai-macro-val.f{color:var(--fat)}.ai-macro-val.c{color:var(--carb)}
+.ai-macro-unit{font-size:10px;color:var(--text3)}
+.ai-note{padding:0 14px 10px;font-size:11px;color:var(--text3);line-height:1.6}
+
+/* AI date selector */
+.ai-date-row{padding:0 14px 14px;display:flex;gap:8px;align-items:center}
+.ai-date-label{font-size:12px;color:var(--text2);white-space:nowrap}
+.ai-date-select{
+  flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;
+  padding:9px 12px;font-size:13px;color:var(--text);font-family:var(--sans);
+  outline:none;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,237,232,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;
+}
+.ai-add-btn{margin:0 14px 14px;width:calc(100% - 28px);background:rgba(109,217,172,.1);border:1px solid rgba(109,217,172,.3);border-radius:10px;padding:12px;font-size:14px;font-weight:700;color:var(--carb);cursor:pointer;font-family:var(--sans);transition:background .15s}
+.ai-add-btn:active{background:rgba(109,217,172,.2)}
+.ai-added-msg{text-align:center;padding:16px;font-size:13px;color:var(--carb)}
+.ai-thinking{padding:20px 14px;display:flex;align-items:center;gap:10px;color:var(--text2);font-size:13px}
+.ai-dots span{display:inline-block;width:5px;height:5px;background:#7eb8f7;border-radius:50%;animation:bounce 1.2s infinite;margin-right:3px}
+.ai-dots span:nth-child(2){animation-delay:.2s}.ai-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.ai-error{padding:14px;font-size:13px;color:var(--danger);line-height:1.7}
+
+/* History */
+.hist-header{padding:20px 20px 16px}
+.hist-title{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.hist-sub{font-size:12px;color:var(--text3);font-family:var(--mono)}
+.hist-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px}
+.hist-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px}
+.hist-card-label{font-size:11px;color:var(--text3);letter-spacing:.08em;font-family:var(--mono);margin-bottom:6px;text-transform:uppercase}
+.hist-card-val{font-size:24px;font-weight:700;font-family:var(--mono)}
+.hist-card-unit{font-size:11px;color:var(--text2);margin-top:2px}
+.hist-card-val.p{color:var(--protein)}.hist-card-val.f{color:var(--fat)}.hist-card-val.c{color:var(--carb)}.hist-card-val.k{color:var(--text)}
+.hist-section{padding:0 20px}
+.hist-day-block{margin-bottom:12px}
+.hist-day-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:12px 12px 0 0;cursor:pointer}
+.hist-day-header.collapsed{border-radius:12px}
+.hist-day-date{font-size:13px;font-weight:700}
+.hist-day-right{display:flex;align-items:center;gap:8px}
+.hist-day-macros{display:flex;gap:8px}
+.hist-day-macro{font-size:11px;font-family:var(--mono)}
+.hist-day-macro.p{color:var(--protein)}.hist-day-macro.f{color:var(--fat)}.hist-day-macro.c{color:var(--carb)}
+.hist-day-kcal{font-size:11px;font-family:var(--mono);color:var(--text3)}
+.hist-expand-icon{font-size:12px;color:var(--text3);transition:transform .2s;flex-shrink:0}
+.hist-expand-icon.open{transform:rotate(180deg)}
+.hist-items{display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;overflow:hidden}
+.hist-items.open{display:block}
+.hist-col-header{display:grid;grid-template-columns:1fr 52px 52px 52px;padding:6px 14px;gap:4px}
+.hist-col-label{font-size:10px;color:var(--text3);font-family:var(--mono);letter-spacing:.06em;text-align:right}
+.hist-col-label:first-child{text-align:left}
+.hist-item{display:grid;grid-template-columns:1fr 52px 52px 52px;padding:9px 14px;font-size:12px;border-top:1px solid var(--border);align-items:center;gap:4px}
+.hist-item-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-item-val{text-align:right;font-family:var(--mono);font-size:12px}
+.hist-item-val.p{color:var(--protein)}.hist-item-val.f{color:var(--fat)}.hist-item-val.c{color:var(--carb)}
+.hist-empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px;line-height:2}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{width:100%;max-width:430px;margin:0 auto;background:var(--bg2);border-radius:24px 24px 0 0;border:1px solid var(--border2);padding:20px 20px calc(20px + var(--sb));transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px}
+.modal-title{font-size:17px;font-weight:700;margin-bottom:18px}
+.input-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.input-full{margin-bottom:10px}
+.input-label{font-size:11px;color:var(--text2);letter-spacing:.06em;margin-bottom:5px;font-family:var(--mono)}
+.inp{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:12px;font-size:16px;color:var(--text);font-family:var(--sans);outline:none;-webkit-appearance:none;appearance:none}
+.inp:focus{border-color:rgba(255,255,255,.3);box-shadow:0 0 0 2px rgba(126,184,247,.1)}
+.inp.mono{font-family:var(--mono)}
+.inp::placeholder{color:var(--text3)}
+/* date input */
+input[type=date].inp{color-scheme:dark;font-family:var(--mono);font-size:14px}
+.modal-submit{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:14px;padding:15px;font-size:15px;font-weight:700;font-family:var(--sans);cursor:pointer;margin-top:8px;transition:opacity .15s}
+.modal-submit:active{opacity:.85}
+</style>
+</head>
+<body>
+
+<!-- Page: Today -->
+<div class="page active" id="page-today">
+  <div class="header">
+    <div>
+      <div class="header-date" id="hdate"></div>
+      <div class="header-title">今日營養</div>
+    </div>
+    <div class="kcal-pill">
+      <div class="kcal-num" id="kcal-total">0</div>
+      <div class="kcal-label">大卡</div>
+    </div>
+  </div>
+  <div class="rings-section" id="rings-section"></div>
+  <div class="log-section">
+    <div class="section-header">
+      <span class="section-label">今日紀錄</span>
+      <button class="clear-btn" onclick="resetToday()">清空今日</button>
+    </div>
+    <div class="log-list" id="log-list"></div>
+  </div>
+</div>
+
+<!-- Page: AI -->
+<div class="page" id="page-ai">
+  <div class="ai-section" style="padding-top:calc(var(--st) + 20px)">
+    <div class="ai-section-header">
+      <span class="ai-badge">AI</span>
+      <span class="ai-title">食物營養估算</span>
+    </div>
+    <p class="ai-hint">輸入食物名稱與重量，AI 估算三大營養素，選擇日期後加入紀錄。</p>
+
+    <div class="api-key-section" id="api-key-section">
+      <div class="api-key-top">
+        <div class="api-status">
+          <div class="api-dot" id="api-dot"></div>
+          <span class="api-status-text" id="api-status-text">尚未設定 API Key</span>
+        </div>
+        <button class="api-key-toggle" id="api-toggle-btn" onclick="toggleApiKeyPanel()">設定 ▾</button>
+      </div>
+      <div class="api-key-panel" id="api-key-panel" style="display:none">
+        <div class="api-key-row" style="margin-top:12px">
+          <input class="api-key-inp" id="api-key-inp" type="password" placeholder="sk-ant-api03-…" autocomplete="off"/>
+          <button class="api-save-btn" id="api-save-btn" onclick="saveApiKey()">儲存</button>
+        </div>
+        <div class="api-key-hint">🔒 Key 僅存於本機，不會上傳任何伺服器。<br>前往 <strong style="color:var(--text2)">console.anthropic.com → API Keys</strong> 免費取得。</div>
+      </div>
+    </div>
+
+    <div class="ai-input-row">
+      <input class="ai-inp" id="ai-inp" type="text" placeholder="例：超商烤地瓜 155g"/>
+      <button class="ai-ask-btn" id="ai-ask-btn" onclick="askAI()">估算</button>
+    </div>
+
+    <div class="ai-result" id="ai-result">
+      <div class="ai-thinking" id="ai-thinking" style="display:none">
+        <div class="ai-dots"><span></span><span></span><span></span></div>
+        AI 正在估算中…
+      </div>
+      <div id="ai-result-body"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Page: History -->
+<div class="page" id="page-history">
+  <div class="hist-header">
+    <div class="hist-title">歷史紀錄</div>
+    <div class="hist-sub" id="hist-sub">載入中…</div>
+  </div>
+  <div class="hist-summary-grid" id="hist-summary"></div>
+  <div class="hist-section" id="hist-section"></div>
+</div>
+
+<!-- Tab bar -->
+<div class="tab-bar">
+  <button class="tab-btn active" id="tab-today" onclick="switchTab('today')">
+    <span class="tab-icon">◎</span>今日
+  </button>
+  <button class="tab-btn" id="tab-ai" onclick="switchTab('ai')">
+    <span class="tab-icon">✦</span>AI 估算
+  </button>
+  <button class="tab-btn" id="tab-history" onclick="switchTab('history')">
+    <span class="tab-icon">≡</span>歷史
+  </button>
+</div>
+
+<!-- FAB -->
+<button class="add-fab" id="add-fab" onclick="openModal()">＋</button>
+
+<!-- Modal: manual add (with date picker) -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">新增飲食紀錄</div>
+    <div class="input-full">
+      <div class="input-label">日期</div>
+      <input class="inp" id="inp-date" type="date"/>
+    </div>
+    <div class="input-full">
+      <div class="input-label">食物名稱</div>
+      <input class="inp" id="inp-name" type="text" placeholder="例：雞胸肉 100g"/>
+    </div>
+    <div class="input-grid">
+      <div>
+        <div class="input-label" style="color:#7eb8f7">蛋白質 (g)</div>
+        <input class="inp mono" id="inp-p" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+      <div>
+        <div class="input-label" style="color:#f78cb3">脂肪 (g)</div>
+        <input class="inp mono" id="inp-f" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+      <div>
+        <div class="input-label" style="color:#6dd9ac">碳水 (g)</div>
+        <input class="inp mono" id="inp-c" type="number" min="0" step="0.1" placeholder="0" inputmode="decimal"/>
+      </div>
+    </div>
+    <button class="modal-submit" onclick="addEntry()">記錄</button>
+  </div>
+</div>
+
+<script>
+const GOALS = {protein:84, fat:25, carb:140};
+const CIRC = 2 * Math.PI * 22;
+
+const now = new Date();
+const todayStr = localDateStr(now);
+let apiKey = '';
+let lastEstimate = null;
+
+/* ── Date helpers ── */
+function localDateStr(d){
+  return d.getFullYear()+'-'
+    +String(d.getMonth()+1).padStart(2,'0')+'-'
+    +String(d.getDate()).padStart(2,'0');
+}
+function displayDate(isoStr){
+  const [y,m,d] = isoStr.split('-');
+  const dt = new Date(Number(y),Number(m)-1,Number(d));
+  if(isoStr===todayStr) return '今天';
+  const yesterday = new Date(now); yesterday.setDate(now.getDate()-1);
+  if(isoStr===localDateStr(yesterday)) return '昨天';
+  return dt.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'short'});
+}
+
+/* ── Storage ── */
+function storageKey(iso){ return 'nt_day_'+iso; }
+
+function getDayEntries(iso){
+  try{ return JSON.parse(localStorage.getItem(storageKey(iso))||'[]'); }
+  catch(e){ return []; }
+}
+
+function saveDayEntries(iso, arr){
+  try{
+    localStorage.setItem(storageKey(iso), JSON.stringify(arr));
+    let dates = JSON.parse(localStorage.getItem('nt_dates')||'[]');
+    if(!dates.includes(iso)){ dates.push(iso); localStorage.setItem('nt_dates',JSON.stringify(dates)); }
+  }catch(e){}
+}
+
+function getAllDates(){
+  try{
+    return JSON.parse(localStorage.getItem('nt_dates')||'[]')
+      .sort((a,b)=> new Date(b)-new Date(a));
+  }catch(e){ return []; }
+}
+
+/* ── Helpers ── */
+const $ = id => document.getElementById(id);
+function r1(n){ return Math.round(n*10)/10; }
+function kcalOf(t){ return Math.round(t.protein*4+t.fat*9+t.carb*4); }
+function sumEntries(arr){ return arr.reduce((a,e)=>({protein:a.protein+e.protein,fat:a.fat+e.fat,carb:a.carb+e.carb}),{protein:0,fat:0,carb:0}); }
+
+/* ── Tab ── */
+function switchTab(tab){
+  ['today','ai','history'].forEach(t=>{
+    $('page-'+t).classList.toggle('active',t===tab);
+    $('tab-'+t).classList.toggle('active',t===tab);
+  });
+  $('add-fab').style.display = (tab==='today')?'flex':'none';
+  if(tab==='history') renderHistory();
+}
+
+/* ── Render Today ── */
+function renderRings(){
+  const entries = getDayEntries(todayStr);
+  const t = sumEntries(entries);
+  const macros=[
+    {label:'蛋白質',val:t.protein,goal:GOALS.protein,cls:'protein',col:'#7eb8f7'},
+    {label:'脂肪',  val:t.fat,    goal:GOALS.fat,    cls:'fat',    col:'#f78cb3'},
+    {label:'碳水',  val:t.carb,   goal:GOALS.carb,   cls:'carb',   col:'#6dd9ac'},
+  ];
+  $('rings-section').innerHTML = macros.map(m=>{
+    const pct=Math.min(1,m.val/m.goal), offset=CIRC*(1-pct), over=m.val>m.goal;
+    const col = over?'#f07070':m.col;
+    return `<div class="ring-card ${m.cls}${over?' over':''}">
+      <svg class="ring-svg" viewBox="0 0 56 56">
+        <circle class="ring-bg" cx="28" cy="28" r="22"/>
+        <circle class="ring-fill ${over?'over':m.cls}" cx="28" cy="28" r="22"
+          stroke-dasharray="${CIRC}" stroke-dashoffset="${offset}" transform="rotate(-90 28 28)"/>
+        <text x="28" y="33" text-anchor="middle" font-family="DM Mono,monospace" font-size="11" font-weight="700" fill="${col}">${Math.round(pct*100)}%</text>
+      </svg>
+      <div class="ring-name">${m.label}</div>
+      <div class="ring-remain ${over?'over':m.cls}">${over?'+'+r1(m.val-m.goal):r1(m.goal-m.val)}g</div>
+      <div class="ring-sub">${over?'⚠ 超標':'尚可攝取'}</div>
+    </div>`;
+  }).join('');
+  $('kcal-total').textContent = kcalOf(t);
+}
+
+function renderLog(){
+  const entries = getDayEntries(todayStr);
+  const el=$('log-list');
+  if(entries.length===0){
+    el.innerHTML=`<div class="empty-state"><span class="empty-icon">🥗</span>尚未記錄任何飲食<br>點 ＋ 或用 AI 估算</div>`;
+    return;
+  }
+  el.innerHTML=entries.map((e,i)=>`
+    <div class="log-item">
+      <span class="log-name">${e.name}</span>
+      <div class="log-macros">
+        <span class="log-macro p">${r1(e.protein)}蛋</span>
+        <span class="log-macro f">${r1(e.fat)}脂</span>
+        <span class="log-macro c">${r1(e.carb)}碳</span>
+      </div>
+      <button class="log-del" onclick="deleteEntry('${todayStr}',${i})">×</button>
+    </div>`).join('');
+}
+
+function renderToday(){ renderRings(); renderLog(); }
+
+/* ── CRUD ── */
+function addEntry(){
+  const iso  = $('inp-date').value || todayStr;
+  const name = $('inp-name').value.trim();
+  const p = parseFloat($('inp-p').value)||0;
+  const f = parseFloat($('inp-f').value)||0;
+  const c = parseFloat($('inp-c').value)||0;
+  if(!name){ $('inp-name').focus(); return; }
+  const arr = getDayEntries(iso);
+  arr.unshift({name,protein:p,fat:f,carb:c});
+  saveDayEntries(iso, arr);
+  renderToday();
+  closeModal();
+  ['inp-name','inp-p','inp-f','inp-c'].forEach(id=>{ $(id).value=''; });
+  $('inp-date').value = todayStr;
+}
+
+function deleteEntry(iso, i){
+  const arr = getDayEntries(iso);
+  arr.splice(i,1);
+  saveDayEntries(iso,arr);
+  if(iso===todayStr) renderToday();
+  else renderHistory();
+}
+
+function resetToday(){
+  if(confirm('確定清空今日所有紀錄？')){
+    saveDayEntries(todayStr,[]);
+    renderToday();
+  }
+}
+
+/* ── Modal ── */
+function openModal(){
+  $('inp-date').value = todayStr;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('inp-name').focus(),300);
+}
+function closeModal(){ $('modal-overlay').classList.remove('open'); }
+function handleOverlayClick(e){ if(e.target===$('modal-overlay')) closeModal(); }
+
+/* ── API Key ── */
+function renderApiStatus(){
+  const has=!!apiKey;
+  $('api-dot').classList.toggle('active',has);
+  $('api-status-text').textContent=has?'API Key 已設定':'尚未設定 API Key';
+  $('api-status-text').classList.toggle('active',has);
+  $('api-toggle-btn').textContent=has?'變更 ▾':'設定 ▾';
+}
+function toggleApiKeyPanel(){
+  const panel=$('api-key-panel'), open=panel.style.display==='none';
+  panel.style.display=open?'block':'none';
+  if(open&&apiKey) $('api-key-inp').value=apiKey;
+  $('api-toggle-btn').textContent=open?'收起 ▴':(apiKey?'變更 ▾':'設定 ▾');
+}
+function saveApiKey(){
+  const v=$('api-key-inp').value.trim();
+  if(!v) return;
+  apiKey=v;
+  try{ localStorage.setItem('nt_api_key',v); }catch(e){}
+  renderApiStatus();
+  const btn=$('api-save-btn'); btn.textContent='✓ 已儲存';
+  setTimeout(()=>{ btn.textContent='儲存'; $('api-key-panel').style.display='none'; $('api-toggle-btn').textContent='變更 ▾'; },1200);
+}
+
+/* ── AI ── */
+function buildAiDateOptions(){
+  const sel=$('ai-date-select');
+  if(!sel) return;
+  sel.innerHTML='';
+  // today + past 6 days
+  for(let i=0;i<7;i++){
+    const d=new Date(now); d.setDate(now.getDate()-i);
+    const iso=localDateStr(d);
+    const opt=document.createElement('option');
+    opt.value=iso; opt.textContent=displayDate(iso);
+    if(i===0) opt.selected=true;
+    sel.appendChild(opt);
+  }
+}
+
+async function askAI(){
+  const query=$('ai-inp').value.trim();
+  if(!query){ $('ai-inp').focus(); return; }
+  if(!apiKey){
+    $('api-key-panel').style.display='block';
+    $('api-toggle-btn').textContent='收起 ▴';
+    $('api-key-section').style.borderColor='rgba(240,112,112,.5)';
+    setTimeout(()=>{ $('api-key-section').style.borderColor=''; },2000);
+    $('api-key-inp').focus(); return;
+  }
+  const btn=$('ai-ask-btn'), resultBox=$('ai-result'), thinking=$('ai-thinking'), body=$('ai-result-body');
+  btn.disabled=true; btn.textContent='…';
+  resultBox.classList.add('visible');
+  thinking.style.display='flex';
+  body.innerHTML='';
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:300,
+        system:`你是食物營養資料庫專家。使用者輸入食物名稱與重量，估算三大營養素。
+只回傳 JSON，不要有任何其他文字或 markdown：
+{"food":"食物名稱含重量","protein":數字,"fat":數字,"carb":數字,"kcal":整數,"note":"估算備註20字以內"}
+所有數字為公克，一位小數。`,
+        messages:[{role:'user',content:query}]
+      })
+    });
+    if(!resp.ok){ const e=await resp.json().catch(()=>({})); throw new Error(e.error?.message||`HTTP ${resp.status}`); }
+    const data=await resp.json();
+    const text=data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
+    const parsed=JSON.parse(text);
+    lastEstimate=parsed;
+    thinking.style.display='none';
+
+    // Build date select options
+    let dateOpts='';
+    for(let i=0;i<7;i++){
+      const d=new Date(now); d.setDate(now.getDate()-i);
+      const iso=localDateStr(d);
+      dateOpts+=`<option value="${iso}"${i===0?' selected':''}>${displayDate(iso)}</option>`;
+    }
+
+    body.innerHTML=`
+      <div class="ai-result-header">
+        <span class="ai-result-food">${parsed.food}</span>
+        <span class="ai-result-kcal">${parsed.kcal} kcal</span>
+      </div>
+      <div class="ai-macros-row">
+        <div class="ai-macro-cell"><span class="ai-macro-label p">蛋白質</span><span class="ai-macro-val p">${parsed.protein}</span><span class="ai-macro-unit">公克</span></div>
+        <div class="ai-macro-cell"><span class="ai-macro-label f">脂肪</span><span class="ai-macro-val f">${parsed.fat}</span><span class="ai-macro-unit">公克</span></div>
+        <div class="ai-macro-cell"><span class="ai-macro-label c">碳水</span><span class="ai-macro-val c">${parsed.carb}</span><span class="ai-macro-unit">公克</span></div>
+      </div>
+      ${parsed.note?`<div class="ai-note">📌 ${parsed.note}</div>`:''}
+      <div class="ai-date-row">
+        <span class="ai-date-label">加入到</span>
+        <select class="ai-date-select" id="ai-date-select">${dateOpts}</select>
+      </div>
+      <button class="ai-add-btn" onclick="addFromAI()">＋ 加入紀錄</button>`;
+  }catch(e){
+    thinking.style.display='none';
+    body.innerHTML=`<div class="ai-error">⚠ 估算失敗：${e.message}<br><span style="font-size:11px;color:var(--text3)">請確認 API Key 是否正確</span></div>`;
+  }
+  btn.disabled=false; btn.textContent='估算';
+}
+
+function addFromAI(){
+  if(!lastEstimate) return;
+  const sel=$('ai-date-select');
+  const iso = sel ? sel.value : todayStr;
+  const arr=getDayEntries(iso);
+  arr.unshift({name:lastEstimate.food,protein:lastEstimate.protein,fat:lastEstimate.fat,carb:lastEstimate.carb});
+  saveDayEntries(iso,arr);
+  if(iso===todayStr) renderToday();
+  $('ai-result-body').innerHTML=`<div class="ai-added-msg">✓ 已加入「${displayDate(iso)}」的紀錄</div>`;
+  setTimeout(()=>{ $('ai-result').classList.remove('visible'); $('ai-inp').value=''; lastEstimate=null; },1200);
+}
+
+/* ── History ── */
+function renderHistory(){
+  const dates=getAllDates();
+  if(dates.length===0){
+    $('hist-summary').innerHTML='';
+    $('hist-section').innerHTML=`<div class="hist-empty">📋 尚無歷史紀錄<br>開始記錄後會自動儲存在這裡</div>`;
+    $('hist-sub').textContent='暫無資料'; return;
+  }
+  let tP=0,tF=0,tC=0,tK=0,days=0;
+  dates.forEach(d=>{ const e=getDayEntries(d); if(!e.length) return; const t=sumEntries(e); tP+=t.protein;tF+=t.fat;tC+=t.carb;tK+=kcalOf(t);days++; });
+  const avg=n=>days>0?r1(n/days):0;
+  $('hist-sub').textContent=`共 ${days} 天紀錄`;
+  $('hist-summary').innerHTML=`
+    <div class="hist-card"><div class="hist-card-label">平均蛋白質</div><div class="hist-card-val p">${avg(tP)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均脂肪</div><div class="hist-card-val f">${avg(tF)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均碳水</div><div class="hist-card-val c">${avg(tC)}</div><div class="hist-card-unit">公克 / 天</div></div>
+    <div class="hist-card"><div class="hist-card-label">平均熱量</div><div class="hist-card-val k">${avg(tK)}</div><div class="hist-card-unit">大卡 / 天</div></div>`;
+  $('hist-section').innerHTML=dates.map(iso=>{
+    const entries=getDayEntries(iso);
+    if(!entries.length) return '';
+    const t=sumEntries(entries), k=kcalOf(t);
+    return `<div class="hist-day-block">
+      <div class="hist-day-header collapsed" onclick="toggleDay(this)">
+        <span class="hist-day-date">${displayDate(iso)}</span>
+        <div class="hist-day-right">
+          <div class="hist-day-macros">
+            <span class="hist-day-macro p">${r1(t.protein)}蛋</span>
+            <span class="hist-day-macro f">${r1(t.fat)}脂</span>
+            <span class="hist-day-macro c">${r1(t.carb)}碳</span>
+          </div>
+          <span class="hist-day-kcal">${k}kcal</span>
+          <span class="hist-expand-icon">▾</span>
+        </div>
+      </div>
+      <div class="hist-items">
+        <div class="hist-col-header">
+          <span class="hist-col-label">食物</span>
+          <span class="hist-col-label">蛋白g</span>
+          <span class="hist-col-label">脂肪g</span>
+          <span class="hist-col-label">碳水g</span>
+        </div>
+        ${entries.map((e,i)=>`
+        <div class="hist-item">
+          <span class="hist-item-name">${e.name}</span>
+          <span class="hist-item-val p">${r1(e.protein)}</span>
+          <span class="hist-item-val f">${r1(e.fat)}</span>
+          <span class="hist-item-val c">${r1(e.carb)}</span>
+        </div>`).join('')}
+        <div class="hist-item" style="background:rgba(255,255,255,.03);font-weight:700">
+          <span class="hist-item-name" style="color:var(--text2)">合計</span>
+          <span class="hist-item-val p">${r1(t.protein)}</span>
+          <span class="hist-item-val f">${r1(t.fat)}</span>
+          <span class="hist-item-val c">${r1(t.carb)}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDay(header){
+  const items=header.nextElementSibling;
+  const icon=header.querySelector('.hist-expand-icon');
+  const open=items.classList.toggle('open');
+  icon.classList.toggle('open',open);
+  header.classList.toggle('collapsed',!open);
+}
+
+/* ── Keyboard ── */
+$('ai-inp').addEventListener('keydown',e=>{ if(e.key==='Enter') askAI(); });
+
+/* ── Init ── */
+$('hdate').textContent = now.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'long'});
+try{ apiKey=localStorage.getItem('nt_api_key')||''; }catch(e){}
+
+// ensure today is in dates index
+try{
+  let dates=JSON.parse(localStorage.getItem('nt_dates')||'[]');
+  if(!dates.includes(todayStr)){ dates.push(todayStr); localStorage.setItem('nt_dates',JSON.stringify(dates)); }
+}catch(e){}
+
 renderApiStatus();
 renderToday();
 </script>
